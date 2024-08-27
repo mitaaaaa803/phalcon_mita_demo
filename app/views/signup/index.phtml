@@ -1,0 +1,35 @@
+<h2>Sign up using this form</h2>
+
+<?php echo $this->tag->form("signup/register"); ?>
+
+<!-- 
+是 Phalcon 框架的一个方法，等於生成HTML <input type="text">。
+傳遞给它的數組參数用於設置該輸入字段的屬性，比如以下的 name 和 class。
+= echo $this->tag->textField(["name","class" => "form-control"]);
+-->
+    <div class="form-group">
+        <label for="name">Name</label>
+        <?php echo $this->tag->textField([
+            "name",
+            "class" => "form-control",
+            "placeholder" => "請輸入全名"
+        ]); ?>
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-Mail</label>
+        <?php echo $this->tag->emailField([
+            "email",
+            "class" => "form-control",
+            "placeholder" => "請輸入信箱號碼"
+        ]); ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->tag->submitButton([
+            "Register",
+            "class" => "btn btn-primary"
+        ]); ?>
+    </div>
+
+</form>
