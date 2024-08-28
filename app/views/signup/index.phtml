@@ -1,6 +1,12 @@
 <h2>Sign up using this form</h2>
 
+
+<div class="flash-messages">
+        <?= $this->flashSession->output() ?>
+</div>
+
 <?php echo $this->tag->form("signup/register"); ?>
+
 
 <!-- 
 是 Phalcon 框架的一个方法，等於生成HTML <input type="text">。
@@ -33,3 +39,4 @@
     </div>
 
 </form>
+

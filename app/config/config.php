@@ -13,7 +13,7 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => '',
-        'dbname'      => 'test',
+        'dbname'      => 'mita_test', /* Revise dbname*/
         'charset'     => 'utf8',
     ],
     'application' => [

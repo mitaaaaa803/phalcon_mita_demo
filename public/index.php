@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Flash\Direct as FlashDirect;
+
 
 error_reporting(E_ALL);
 
@@ -14,6 +16,21 @@ try {
      * the services that provide a full stack framework.
      */
     $di = new FactoryDefault();
+
+    $di ->set(
+        'flash',
+        function(){
+            $flash = new FlashDirect(
+                [
+                    'error'   => 'alert alert-danger',
+                    'success' => 'alert alert-success',
+                    'notice'  => 'alert alert-info',
+                    'warning' => 'alert alert-warning',
+                ]
+                );
+                return $flash;
+        }
+    ) ;
 
     /**
      * Read services
