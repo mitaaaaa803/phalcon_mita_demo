@@ -4,6 +4,7 @@ namespace App\Forms; //for loader.php
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Email;
+use Phalcon\Forms\Element\Submit;
 
 class RegisterForm extends Form // Phalcon\Forms\Form
 {
@@ -27,6 +28,17 @@ class RegisterForm extends Form // Phalcon\Forms\Form
                 [
                     "placeholder" => "Type your email",
                     "class" => "form-control",
+                ]
+            )
+        );
+
+        $this->add(
+            new Submit(
+                "sumit",
+                [
+                    "value" => "Register",
+                    "class" => "btn btn-primary",
+                    "style" => "background-color: #000" /* 更改顏色 */
                 ]
             )
         );
