@@ -17,12 +17,12 @@ class SignupController extends ControllerBase
         $request = new Request();
 
         if ($this->request->isPost()) {
-            echo $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/ /* echo 顯示 name = qqq */
-            echo $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/ /* echo 顯示 email = mitawu0803@gmail.com */
+            $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/ /* echo 顯示 name = qqq */
+            $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/ /* echo 顯示 email = mitawu0803@gmail.com */
         }
 
-        print_r($this->request->isPost());/* 在 PHP 中，true 被輸出時會顯示為 1，1 = true， 不顯示 = false */
-        exit;
+        // print_r($this->request->isPost()); /* 在 PHP 中，true 被輸出時會顯示為 1，1 = true， 不顯示 = false */
+        // exit;
 
         // 回傳值(true/false)
         // var_dump($request->isPost()); //Post Request
@@ -40,7 +40,12 @@ class SignupController extends ControllerBase
 
         //assign value from the form to $user
         $user->assign(
-            $this->request->getPost(),
+            // $this->request->getPost(), //不希望直接從 POST 數據中分配所有字段的值，而是想手動控制要分配的值
+            [
+                // 手動控制要分配的值 ' ' => $
+                'name'=> $name,
+                'email'=> $email,
+            ],
             [   
                 'name',
                 'email'
