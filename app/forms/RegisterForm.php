@@ -11,36 +11,33 @@ class RegisterForm extends Form // Phalcon\Forms\Form
     public function initialize()
     {
         //定義一個 name 字段
-        $this->add(
-            new Text(
-                'name',
-                [
-                    "placeholder" => "Type your name",
-                    "class" => "form-control",
-                ]
-            )
+        $name = new Text(
+            'name',
+            [
+                "placeholder" => "Type your name",
+                "class" => "form-control",
+            ]
         );
+        $this->add($name);
 
         //定義一個 email 字段
-        $this->add(
-            new Email(
+        $email = new Email(
                 "email",
                 [
                     "placeholder" => "Type your email",
                     "class" => "form-control",
                 ]
-            )
         );
+        $this->add($email);
 
-        $this->add(
-            new Submit(
+        $sumit = new Submit(
                 "sumit",
                 [
                     "value" => "Register",
                     "class" => "btn btn-primary",
                     "style" => "background-color: #000" /* 更改顏色 */
                 ]
-            )
         );
+        $this->add($sumit);
     }
 }
