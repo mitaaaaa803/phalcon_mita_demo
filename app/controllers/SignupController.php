@@ -16,11 +16,12 @@ class SignupController extends ControllerBase
     {
         $request = new Request();
 
+        if ($this->request->isPost()) {
+            echo $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/ /* echo 顯示 name = qqq */
+            echo $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/ /* echo 顯示 email = mitawu0803@gmail.com */
+        }
 
-        $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/
-        $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/
-
-        print_r($this->request->getPost());/*可讀的格式輸出到頁面上*/
+        print_r($this->request->isPost());/* 在 PHP 中，true 被輸出時會顯示為 1，1 = true， 不顯示 = false */
         exit;
 
         // 回傳值(true/false)
