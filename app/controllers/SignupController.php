@@ -16,6 +16,13 @@ class SignupController extends ControllerBase
     {
         $request = new Request();
 
+
+        $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/
+        $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/
+
+        print_r($this->request->getPost());/*可讀的格式輸出到頁面上*/
+        exit;
+
         // 回傳值(true/false)
         // var_dump($request->isPost()); //Post Request
         // var_dump($request->isAjax()); //Ajax Request
@@ -60,12 +67,11 @@ class SignupController extends ControllerBase
             $this->flashSession->success('Thanks for registering!');
 
             // Forward to the index action
-            return $this->response->redirect('signup'); /* 重回到 signup 頁面*/
+            // return $this->response->redirect('signup'); /* 重回到 signup 頁面*/
         } else {
             // echo "Sorry, the following problems were generated:<br>"; 消息在會活存儲，直到下一次請求被處理，並在用户看到消息後銷毀。
             $this->flashSession->success('Sorry, the following problems were generated');
-            return $this->response->redirect('signup');
-            return $this->response->redirect('signup');
+            // return $this->response->redirect('signup');  /* 重回到 signup 頁面*/
         }
 
     }
