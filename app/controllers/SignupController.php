@@ -1,13 +1,17 @@
 <?php
 use Phalcon\Http\Request;
 
-// declare(strict_types=1);
+// use form //新增 RegisterForm 路徑
+use App\Forms\RegisterForm;  
 
 class SignupController extends ControllerBase
 {
 
     public function indexAction()
     { 
+        // var_dump(new RegisterForm());exit;
+        $this->view->form = new RegisterForm();
+
         // $this->flash->success('Thanks');
         // exit;
     }
@@ -15,11 +19,15 @@ class SignupController extends ControllerBase
     public function registerAction()
     {
         $request = new Request();
+        $user = new users();
 
-        if ($this->request->isPost()) {
+        if (!$this->request->isPost()) {
+            return $this->response->redirect('signup');  /* 重回到 signup 頁面*/
+            
+        }
             $name = $this->request->getPost('name', 'string');/* post 請求中獲取 name 字段*/ /* echo 顯示 name = qqq */
             $email = $this->request->getPost('email', 'email');/* post 請求中獲取 email 字段*/ /* echo 顯示 email = mitawu0803@gmail.com */
-        }
+
 
         // print_r($this->request->isPost()); /* 在 PHP 中，true 被輸出時會顯示為 1，1 = true， 不顯示 = false */
         // exit;
@@ -36,7 +44,6 @@ class SignupController extends ControllerBase
         // exit;
 
 
-        $user = new users();
 
         //assign value from the form to $user
         $user->assign(
