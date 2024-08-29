@@ -65,6 +65,7 @@ class SignupController extends ControllerBase
             // echo "Sorry, the following problems were generated:<br>"; 消息在會活存儲，直到下一次請求被處理，並在用户看到消息後銷毀。
             $this->flashSession->success('Sorry, the following problems were generated');
             return $this->response->redirect('signup');
+            return $this->response->redirect('signup');
         }
 
     }
