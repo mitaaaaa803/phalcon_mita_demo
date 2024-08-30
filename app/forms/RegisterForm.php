@@ -6,11 +6,13 @@ use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Email;
 use Phalcon\Forms\Element\Submit;
 
+
 class RegisterForm extends Form // Phalcon\Forms\Form
 {
     public function initialize()
     {
-        //定義一個 name 字段
+
+        // form email field 
         $name = new Text(
             'name',
             [
@@ -18,9 +20,8 @@ class RegisterForm extends Form // Phalcon\Forms\Form
                 "class" => "form-control",
             ]
         );
-        $this->add($name);
 
-        //定義一個 email 字段
+        // form email field 
         $email = new Email(
                 "email",
                 [
@@ -28,16 +29,20 @@ class RegisterForm extends Form // Phalcon\Forms\Form
                     "class" => "form-control",
                 ]
         );
-        $this->add($email);
 
-        $sumit = new Submit(
-                "sumit",
+        // form submit button
+        $submit = new Submit(
+                "submit",
                 [
                     "value" => "Register",
                     "class" => "btn btn-primary",
                     "style" => "background-color: #000" /* 更改顏色 */
                 ]
         );
-        $this->add($sumit);
+        $this->add($name);
+        $this->add($email);
+        $this->add($submit);
+        
     }
+    
 }

@@ -8,6 +8,7 @@
 <?php echo $this->tag->form("signup/register"); ?>
 
 
+
 <!-- 
 是 Phalcon 框架的一个方法，等於生成HTML <input type="text">。
 傳遞给它的數組參数用於設置該輸入字段的屬性，比如以下的 name 和 class。
@@ -19,41 +20,28 @@
         <!-- render()渲染出來 -->
         <?php echo $form->render(
             "name",
-            // [
-            //     "maxlength" => 30,
-            //     "placeholder" => "Type your name"
-            // ]
         ); ?>
 
-        <label for="name">Full Name</label>
-        <?php echo $this->tag->textField(
-            [
-                "name",
-                "class" => "form-control",
-                "placeholder" => "Type your full name"
-            ]
-        ); ?>
     </div>
 
     <div class="form-group">
         <label for="email">E-Mail</label>
         <?php echo $form->render(
             "email",
-            // "class" => "form-control",
-            // "placeholder" => "請輸入信箱號碼"
         ); ?>
     </div>
 
     <div class="form-group">
-        <?php echo $this->tag->submitButton([
-            "Register",
-            "class" => "btn btn-primary"
-        ]); ?>
-
         <?php echo $form->render(
-            "sumit",
+            "submit",
         ); ?>
     </div>
 
 </form>
 
+<!-- 回到 localhost 的 link -->
+<?php echo $this->tag->linkTo(
+    '',
+    'Go Back'
+);
+?>

@@ -1,0 +1,35 @@
+<?php
+echo "<h1>User</h1>";
+?>
+
+<table  class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">email</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <?php foreach ($users as $user): ?>
+    <tr>
+        <td><?php echo $user->id; ?></td>
+        <td><?php echo $user->name; ?></td>
+        <td><?php echo $user->email; ?></td>
+        <td><?php echo $this->tag->linkTo([  /* 新增編輯的 btn ， 並跳轉到編輯頁面 */
+        'test/edit',
+        '編輯',
+        'class' => 'btn btn-outline-secondary',
+        ]);?>
+        </td>
+        <td><?php echo $this->tag->linkTo([   /* 新增刪除的 btn */
+        'test/delete/'.$user->id,
+        '刪除',
+        'class' => 'btn btn-outline-secondary',
+        ]);?>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
